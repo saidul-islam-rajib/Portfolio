@@ -20,6 +20,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Weather", "Weather", "{8BCF
 		GetForcasts.http = GetForcasts.http
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{1B75EA43-4A57-42E6-B3B1-0835DD7D7929}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{AA4B0DDF-2A4D-44E7-9664-5A141C36989A}"
+	ProjectSection(SolutionItems) = preProject
+		Api.md = Api.md
+		Authentication.md = Authentication.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,5 +60,9 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8BCF3076-14C3-4021-8282-09E87FA0D222} = {C3A57D4D-60A2-475B-BA39-95B089197703}
+		{AA4B0DDF-2A4D-44E7-9664-5A141C36989A} = {1B75EA43-4A57-42E6-B3B1-0835DD7D7929}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6314CCCA-4E8D-4D0A-9EB4-0A620D79B8B5}
 	EndGlobalSection
 EndGlobal
