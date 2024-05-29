@@ -1,0 +1,1 @@
+* To add all the project into Sober.sln : for /r %i in (*.csproj) do dotnet sln add "%i"
