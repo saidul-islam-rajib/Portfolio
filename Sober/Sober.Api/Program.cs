@@ -1,17 +1,18 @@
+using Sober.Api;
 using Sober.Application;
 using Sober.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
-
 {
-    builder.Services.AddApplication()
-                    .AddInfrastructure();
-
-    builder.Services.AddControllers();
+    builder.Services
+        .AddPresentation()
+        .AddApplication()
+        .AddInfrastructure(builder.Configuration);
 }
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 
@@ -22,7 +23,10 @@ if (app.Environment.IsDevelopment())
 }
 
 {
+    app.UseExceptionHandler("/error");
     app.UseHttpsRedirection();
+    app.UseAuthentication();
+    app.UseAuthorization();
     app.MapControllers();
     app.Run();
 }
