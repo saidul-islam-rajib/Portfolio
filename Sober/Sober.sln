@@ -31,6 +31,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModels", "DomainModels", "{F9D4E8D6-5AE7-496C-B68A-E785EA8026BE}"
 	ProjectSection(SolutionItems) = preProject
 		Aggregates.Post.md = Aggregates.Post.md
+		Aggregates.Topic.md = Aggregates.Topic.md
 	EndProjectSection
 EndProject
 Global
