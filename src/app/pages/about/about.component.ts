@@ -180,29 +180,75 @@ export class AboutComponent implements OnInit {
   }
   
 
-  loadAdditionalSkill(): void{
-    this.additionalSkillService.getAdditionalSkills().subscribe({
-      next:(data) => {
-        this.additionalSkillList = data;
-        console.log("Additional skill list : ", this.additionalSkillList)
+  loadAdditionalSkill(): void {
+    this.additionalSkillList = [
+      {
+        additionalSkillId: 'as1',
+        userId: 'user123',
+        title: 'Soft Skills',
+        keys: [
+          { additionalSkillKeyId: 'ask1', key: 'Teamwork: Enjoy collaboration and value diverse perspectives.' },
+          { additionalSkillKeyId: 'ask2', key: 'Time Management: Prioritize tasks and meet deadlines efficiently.' },
+          { additionalSkillKeyId: 'ask3', key: 'Adaptability: Quickly adjust to changes and challenges.' }
+        ]
       },
-      error: (err) => {
-        console.error("Additional Skill Error: ", err);
+      {
+        additionalSkillId: 'as2',
+        userId: 'user123',
+        title: 'Tools & Technologies',
+        keys: [
+          { additionalSkillKeyId: 'ask4', key: 'Git: Proficient with version control and collaborative development.' },
+          { additionalSkillKeyId: 'ask5', key: 'Postman: Skilled in API testing and request automation.' }
+        ]
       }
-    });
+    ];
   }
+  
+  
 
-  loadInterest(): void{
-    this.interestService.getInterest().subscribe({
-      next:(data) => {
-        this.interstList = data;
-        console.log("Interest list : ", this.interstList);
+  loadInterest(): void {
+    this.interstList = [
+      {
+        interestId: 'int1',
+        userId: 'user123',
+        title: 'Programming',
+        keys: [
+          { interestKeyId: 'key1', key: 'Problem Solving (leetcode, codeforces)' },
+          { interestKeyId: 'key2', key: 'Competitive Coding' },
+        ]
       },
-      error: (err) => {
-        console.error("Interest Skill Error: ", err);
+      {
+        interestId: 'int2',
+        userId: 'user123',
+        title: 'Technology Exploration',
+        keys: [
+          { interestKeyId: 'key4', key: 'AI & Machine Learning' },
+          { interestKeyId: 'key5', key: 'System Design' },
+          { interestKeyId: 'key6', key: 'DevOps Tools' }
+        ]
+      },
+      {
+        interestId: 'int3',
+        userId: 'user123',
+        title: 'Creative Activities',
+        keys: [
+          { interestKeyId: 'key7', key: 'UI Design' }
+        ]
+      },
+      {
+        interestId: 'int3',
+        userId: 'user123',
+        title: 'Hobbies and Love to Do',
+        keys: [
+          { interestKeyId: 'key8', key: 'Spending Quality Time with Babies' },
+          { interestKeyId: 'key8', key: 'Explore new places by taking a ride on a rickshaw' },
+          { interestKeyId: 'key8', key: 'Playing Caram' },
+          { interestKeyId: 'key8', key: 'Chess' }
+        ]
       }
-    });
+    ];  
   }
+  
   
   loadProject(): void {  
     this.projectList = [
@@ -369,9 +415,7 @@ export class AboutComponent implements OnInit {
           }
         ]
       }
-    ];
-  
-    console.log("Project list : ", this.projectList);
+    ];  
   }
   
   
