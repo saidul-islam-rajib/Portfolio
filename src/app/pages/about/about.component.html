@@ -9,7 +9,11 @@
       </h1>
 
       <p class="hero-text">
-        {{ user.userBio }}
+        A dedicated Junior Software Engineer at ASA International with expertise in developing robust web and desktop applications. 
+        Proficient in a diverse set of programming languages, including C++, C#, JavaScript, and Python, Rajib combines a strong 
+        foundation in software engineering with a passion for continuous learning and problem-solving. His technical acumen extends 
+        to modern frameworks and technologies such as React, ASP.NET Core, and Angular, as well as database systems like SQL Server,
+        MySQL, PostgreSQL, and MongoDB.
       </p>
     </div>
 
@@ -69,11 +73,11 @@
                 style="--width: 64; --height: 64"
               >
                 <img
-                  src="./assets/images/popular-post-1.jpg"
+                  src="../../../assets/images/asa_international_asai__logo.jpeg"
                   width="64"
                   height="64"
                   loading="lazy"
-                  alt="Creating is a privilege but it’s also a gift"
+                  alt="Missing Image"
                   class="img-cover"
                 />
               </figure>
@@ -84,7 +88,7 @@
                     class="headline headline-4 card-title"
                     style="width: 100%; margin-bottom: 0px"
                   >
-                    <a href="#" class="link hover-2"
+                    <a href="https://www.asa-international.com/" class="link hover-2"
                       >{{ data.companyName }} ({{ data.shortName }})</a
                     >
                   </h4>
@@ -111,8 +115,8 @@
                     {{ data.startDate | date : "MMMM dd, yyyy" }}
                     {{
                       data.isCurrentEmployee
-                        ? " to " + (data.endDate | date : "MMMM dd, yyyy")
-                        : "to Present"
+                        ? "to Present"
+                        : " to " + (data.endDate | date : "MMMM dd, yyyy")
                     }}
                   </p>
                 </div>
@@ -148,7 +152,7 @@
                 style="--width: 64; --height: 64"
               >
                 <img
-                  src="./assets/images/popular-post-1.jpg"
+                  src="../../../assets/images/university_logo.png"
                   width="64"
                   height="64"
                   loading="lazy"
@@ -163,8 +167,8 @@
                     class="headline headline-4 card-title"
                     style="width: 100%; margin-bottom: 0px"
                   >
-                    <a href="#" class="link hover-2"
-                      >{{ education.instituteName }}</a
+                    <a href="https://daffodilvarsity.edu.bd/" class="link hover-2"
+                      >{{ education.instituteName }} (DIU)</a
                     >
                   </h4>
                   <label for=""
@@ -177,6 +181,7 @@
                   <ul *ngFor="let section of education.educationSection" >
                     <li style="font-size: 12px">
                       <b>-</b> {{ section.sectionDescription }}
+                      <a href="https://internship.daffodilvarsity.edu.bd/?app=home&cmd=reportsViewPDFskin&project_number=19455" class="link hover-2" style="color: rgb(253, 249, 249);">Click</a>
                     </li>
                   </ul>
                 </div>
@@ -194,7 +199,7 @@
     <div class="post-aside grid-list">
       <div class="card aside-card">
         <h3 class="headline headline-2 aside-title">
-          <span class="span">Publications</span>
+          <span class="span">Publications / Thesis</span>
         </h3>
         <ul class="experience-list" *ngFor="let publication of publicationList" >
           <li>
@@ -208,7 +213,7 @@
                   width="64"
                   height="64"
                   loading="lazy"
-                  alt="Creating is a privilege but it’s also a gift"
+                  alt="Publication image is missing"
                   class="img-cover"
                 />
               </figure>
@@ -219,12 +224,12 @@
                     class="headline headline-4 card-title"
                     style="width: 100%; margin-bottom: 0px"
                   >
-                    <a href="#" class="link hover-2"
+                    <a href="https://internship.daffodilvarsity.edu.bd/?app=home&cmd=reportsViewPDFskin&project_number=19455" class="link hover-2"
                       >{{publication.title }}</a
                     >
                   </h4>
                   <p>
-                    {{ publication.date | date: "MMMM dd, yyyy" }}
+                    {{ publication.date | date: "MMMM, yyyy" }}
                   </p>
                 </div>
                 <div class="warpper" style="margin-bottom: 5px">
@@ -242,7 +247,7 @@
                 </div>
 
                 <div class="card-grid-contianer"  >
-                  <h4 class="data-list card-title">Topic, Skill & Keys</h4>
+                  <h4 class="data-list card-title">Topic & Keys</h4>
                   <ul *ngFor="let item of publication.keys">
                     <li style="font-size: 12px">
                       <b>-</b> {{ item.key }}

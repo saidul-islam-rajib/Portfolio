@@ -68,37 +68,117 @@ export class AboutComponent implements OnInit {
   }
 
   loadExperiences(): void {
-    this.experienceService.getExperiences().subscribe({
-      next:(data) => {
-        this.experiences = data;
+    this.experiences = [
+      {
+        companyName: 'ASA International Management Services Limited',
+        shortName: 'AMSL',
+        companyLogo: '../../../assets/images/asa_international_asai__logo.jpeg',
+        designation: 'Junior Software Engineer',
+        isCurrentEmployee: true,
+        isFullTimeEmployee: true,
+        startDate: new Date('2023-01-11'),
+        endDate: new Date(),
+        userId: 'user123',
+        experienceSection: [
+          {
+            experienceSectionId: 'section1',
+            sectionDescription: 'Conduct necessary research, collaborate with teams, maintain Software Development Life Cycle (SDLC) and then design & develop software application by writing efficient, reusable and maintainable code.',
+          },
+          {
+            experienceSectionId: 'section2',
+            sectionDescription: 'Added new feature in banking system named Monthly Deposit Scheme and Fixed Deposit Scheme for Rwanda',
+          },
+          {
+            experienceSectionId: 'section3',
+            sectionDescription: 'Fix bugs and improve performance of existing applications(like Executive Dashboard)',
+          }
+        ]
       },
-      error: (err) => {
-        console.error('Experience Error:', err);
+      {
+        companyName: 'ASA International Management Services Limited',
+        shortName: 'AMSL',
+        companyLogo: '../../../assets/images/asa_international_asai__logo.jpeg',
+        designation: 'Intern Software Engineer',
+        isCurrentEmployee: false,
+        isFullTimeEmployee: true,
+        startDate: new Date('2022-10-10'),
+        endDate: new Date('2023-01-10'),
+        userId: 'user124',
+        experienceSection: [
+          {
+            experienceSectionId: 'section1',
+            sectionDescription: 'Creating new applications (full stack development through angular for frontend, ASP.NET web API for creating API’s) and updating existing applications based on requirements',
+          },
+          {
+            experienceSectionId: 'section2',
+            sectionDescription: 'Working with microservice architecture and debugging programming codes to fix bugs & errors and improve performance of the existing system (like AMBS Nextgen project)',
+          },
+          {
+            experienceSectionId: 'section3',
+            sectionDescription: 'Testing software application including performance, functional, integration, system and user acceptance',
+          }
+        ]
       }
-    });
+    ];
   }
+  
 
-  loadEducations(): void{
-    this.educationService.getEducations().subscribe({
-      next:(data) => {
-        this.educationList = data;
-      },
-      error: (err) => {
-        console.error('Education Error:', err);
-      }
-    });
+  loadEducations(): void {
+    const now = new Date();
+  
+    this.educationList = [
+      {
+        instituteName: 'Daffodil International University',
+        instituteLogo: '../../../assets/images/university_logo.png',
+        department: 'Computer Science and Engineering',
+        startDate: new Date('2018-01-01'),
+        endDate: new Date('2022-02-22'),
+        educationSection: [
+          {
+            educationSectionId: 'eduSec1',
+            sectionDescription: 'During my university years- I actively participated in numerous programming contests including CPC and IUPC. In addition to on-site competitions I actively participated in online coding challenges on platforms Codeforces and CodeChef. Which helped to sharpen my problem-solving skills.'
+          },
+          {
+            educationSectionId: 'eduSec2',
+            sectionDescription: 'Alongside contests, I took the initiative to build several exciting and practical projects. These include a `House Price Prediction` model leveraging machine learning techniques and a lightweight desktop application like text editor called `Notepad`.'
+          },
+          {
+            educationSectionId: 'eduSec3',
+            sectionDescription: 'For undergraduate thesis, conducted research on "The Methods for Finding Eligible Employees Based on Specification". where I explored data-driven approaches to pickup the best one and rank them accordingly.'
+          }
+        ]
+      }      
+    ];
   }
+  
 
-  loadPublication(): void{
-    this.publicationService.getPublications().subscribe({
-      next:(data) => {
-        this.publicationList = data;
-      },
-      error: (err) => {
-        console.error("Publication Error: ", err);
+  loadPublication(): void {  
+    this.publicationList = [
+      {
+        publicationId: 'pub1',
+        userId: 'user123',
+        title: 'Methods for Finding Eligible Employees Based on Specifications',
+        summary: 'This research applies data-driven techniques to assess and rank candidates based on predefined criteria. Aiming to improve the efficiency and accuracy of hiring decisions for picking up the best one and/or to identify the most weakest one.',
+        journalName: 'Daffodil International University',
+        date: new Date('2021-12-01'),
+        keys: [
+          {
+            publicationKeyId: 'key1',
+            key: 'AHP, MCDM, TFN'
+          },
+          {
+            publicationKeyId: 'key2',
+            key: 'FAHP, TrFN'
+          },
+          {
+            publicationKeyId: 'key3',
+            key: 'ELECTRE'
+          }
+        ]
       }
-    });
+    ];
   }
+  
 
   loadAdditionalSkill(): void{
     this.additionalSkillService.getAdditionalSkills().subscribe({
