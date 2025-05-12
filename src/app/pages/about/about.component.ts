@@ -53,7 +53,7 @@ export class AboutComponent implements OnInit {
     this.loadPublication();
     this.loadAdditionalSkill();
     this.loadInterest();
-    this.laodProject();
+    this.loadProject();
   }
 
   loadUserInformation(): void {
@@ -203,17 +203,178 @@ export class AboutComponent implements OnInit {
       }
     });
   }
-  laodProject(): void{
-    this.projectService.getProject().subscribe({
-      next:(data) => {
-        this.projectList = data;
-        console.log("Project list : ", this.projectList);
+  
+  loadProject(): void {  
+    this.projectList = [
+      {
+        projectId: 'p1',
+        postId: 'post101',
+        projectTitle: 'Personal Blog Website',
+        projectSummary: `
+            This is a personal blog and portfolio website where the admin can create and update posts or projects based on various topics. Public users can engage by commenting on posts or projects and subscribing for updates.
+
+            A dedicated "About" page showcases the admin's portfolio, including employment history, academic background, interests, publications, and more.
+
+            To ensure scalability and maintainability, the application follows a modular architecture:
+            admin-blog (Admin Panel): A separate Angular application for managing content.
+            frontend-blog (Public View): A distinct Angular application for public users.
+            Backend: Built with .NET 8 Web API, utilizing SQL Server for data storage, Redis for distributed caching, and Redis as a message broker. The architecture follows Clean Architecture principles with CQRS for efficient data processing.
+            `,
+        projectSrcLink: 'https://github.com/saidul-islam-rajib/frontend-blog',
+        projectImage: '../../../assets/images/personal_blog.png',
+        displayDate: new Date(),
+        startDate: new Date('2024-02-01'),
+        endDate: new Date('2025-05-03'),
+        projectSection: [
+          {
+            postSectionId: 'sec1',
+            topicId: 't1',
+            topicName: 'Backend',
+            projectTags: [
+              { tagId: 'tag2', projectTagName: 'Angular' },
+              { tagId: 'tag2', projectTagName: '.NET' },
+              { tagId: 'tag3', projectTagName: 'ASP.NET Web API ' },
+              { tagId: 'tag3', projectTagName: 'RabbitMQ' },
+              { tagId: 'tag3', projectTagName: 'SQL Server' },
+              { tagId: 'tag3', projectTagName: 'JWT' },
+              { tagId: 'tag3', projectTagName: 'Mapster' },
+              { tagId: 'tag3', projectTagName: 'MediatR' },
+              { tagId: 'tag3', projectTagName: 'CQRS' },
+              { tagId: 'tag3', projectTagName: 'Docker' }
+            ]
+          }
+        ]
       },
-      error: (err) => {
-        console.error("Project Error: ", err);
+      {
+        projectId: 'p1',
+        postId: 'post101',
+        projectTitle: 'e-Commerce Application',
+        projectSummary: 'An application for ecommerce that enabling customers to seamlessly create a shopping basket, proceed to checkout and place orders. The system also incorporates a feature to apply discounts on specific products.',
+        projectSrcLink: 'https://github.com/saidul-islam-rajib/ECommerce',
+        projectImage: '../../../assets/images/ecommerce_application.png',
+        displayDate: new Date('2024-11-01'),
+        startDate: new Date('2023-02-01'),
+        endDate: new Date('2023-06-30'),
+        projectSection: [
+          {
+            postSectionId: 'sec1',
+            topicId: 't1',
+            topicName: 'Backend',
+            projectTags: [
+              { tagId: 'tag2', projectTagName: '.NET' },
+              { tagId: 'tag3', projectTagName: 'ASP.NET Core' },
+              { tagId: 'tag3', projectTagName: 'PostgreSQL' },
+              { tagId: 'tag3', projectTagName: 'Redis' },
+              { tagId: 'tag3', projectTagName: 'RabbitMQ' },
+              { tagId: 'tag4', projectTagName: 'SQLite' },
+              { tagId: 'tag4', projectTagName: 'Microservices' }
+            ]
+          }
+        ]
+      },
+      {
+        projectId: 'p1',
+        postId: 'post101',
+        projectTitle: 'Authentication Service',
+        projectSummary: 'A complete and secured token based(jwt) authentication service developed using industry latest technologies like microservices. Where an authenticated user will able to login/register.',
+        projectSrcLink: 'https://github.com/saidul-islam-rajib/Authentication',
+        projectImage: '../../../assets/images/authentication.png',
+        displayDate: new Date('2024-06-01'),
+        startDate: new Date('2023-02-01'),
+        endDate: new Date('2023-06-30'),
+        projectSection: [
+          {
+            postSectionId: 'sec1',
+            topicId: 't1',
+            topicName: 'Backend',
+            projectTags: [
+              { tagId: 'tag1', projectTagName: 'C#' },
+              { tagId: 'tag2', projectTagName: '.NET' },
+              { tagId: 'tag3', projectTagName: 'SQL Server' },
+              { tagId: 'tag4', projectTagName: 'Microservice' }
+            ]
+          }
+        ]
+      },
+      {
+        projectId: 'p1',
+        postId: 'post101',
+        projectTitle: 'Authentication Service With UI',
+        projectSummary: 'A complete authentication service. Where users will be able to login/register to the system from UI.',
+        projectSrcLink: 'https://github.com/saidul-islam-rajib/Auth',
+        projectImage: '../../../assets/images/authentication.png',
+        displayDate: new Date('2024-06-01'),
+        startDate: new Date('2023-02-01'),
+        endDate: new Date('2023-06-30'),
+        projectSection: [
+          {
+            postSectionId: 'sec1',
+            topicId: 't1',
+            topicName: 'Backend',
+            projectTags: [
+              { tagId: 'tag1', projectTagName: 'Angular' },
+              { tagId: 'tag2', projectTagName: '.NET' },
+              { tagId: 'tag3', projectTagName: 'Microsoft SQL Server' },
+              { tagId: 'tag4', projectTagName: 'JWT Token' }
+            ]
+          }
+        ]
+      },
+      {
+        projectId: 'p2',
+        postId: 'post102',
+        projectTitle: 'Dinner Hosting Service',
+        projectSummary: 'Asp.net Web API based application where authenticated users will login/register to the system and will be able to post/get dinner menu.',
+        projectSrcLink: 'https://github.com/saidul-islam-rajib/Dinner_Host',
+        projectImage: '../../../assets/images/dinner_host.png',
+        displayDate: new Date('2024-05-01'),
+        startDate: new Date('2022-08-01'),
+        endDate: new Date('2022-12-01'),
+        projectSection: [
+          {
+            postSectionId: 'sec3',
+            topicId: 't3',
+            topicName: 'Platform',
+            projectTags: [
+              { tagId: 'tag6', projectTagName: '.NET' },
+              { tagId: 'tag6', projectTagName: 'DDD' },
+              { tagId: 'tag6', projectTagName: 'EF' },
+              { tagId: 'tag7', projectTagName: 'MediatR, JWT Token' },
+              { tagId: 'tag7', projectTagName: 'Repository Design Pattern' },
+              { tagId: 'tag8', projectTagName: 'Docker' }
+            ]
+          }
+        ]
+      },
+      {
+        projectId: 'p2',
+        postId: 'post102',
+        projectTitle: 'Text Editor',
+        projectSummary: 'A desktop applicated named `Notepad` developed with pure python language with complete OOP fundamentals.',
+        projectSrcLink: 'https://github.com/saidul-islam-rajib/Desktop_application',
+        projectImage: '../../../assets/images/desktop_application.jpeg',
+        displayDate: new Date('2021-08-01'),
+        startDate: new Date('2022-08-01'),
+        endDate: new Date('2022-12-01'),
+        projectSection: [
+          {
+            postSectionId: 'sec3',
+            topicId: 't3',
+            topicName: 'Platform',
+            projectTags: [
+              { tagId: 'tag6', projectTagName: 'Python' },
+              { tagId: 'tag6', projectTagName: 'OOP' },
+              { tagId: 'tag8', projectTagName: 'tkinter' }
+            ]
+          }
+        ]
       }
-    });
+    ];
+  
+    console.log("Project list : ", this.projectList);
   }
+  
+  
 
   calculateDuration(startDate: Date, endDate: Date, isCurrentEmployee: boolean): string {
     const effectiveEndDate = isCurrentEmployee ? new Date() : endDate;

@@ -270,6 +270,10 @@
         <h3 class="headline headline-2 aside-title">
           <span class="span">Projects</span>
         </h3>
+        <p style="margin-top: -20px; margin-bottom: 20px;">
+          I’ve built several personal projects using React, Angular, .NET Web API, and more. These projects highlight my skills in full-stack and cross-platform development.
+          The source code is open to the public and listed below.
+        </p>
         <ul class="grid-list" *ngFor="let project of projectList" >
           <li>
             <div class="recent-post-card">
@@ -278,7 +282,7 @@
                 style="--width: 350; --height: 200; background-color: c"
               >
                 <img
-                  src="./assets/images/recent-post-4.jpg"
+                  src={{project.projectImage}}
                   width="200"
                   height="100"
                   loading="lazy"
@@ -292,13 +296,13 @@
                     class="headline headline-4 card-title"
                     style="width: 100%; margin-bottom: 0px"
                   >
-                    <a href="#" class="link hover-2"
+                    <a class="link hover-2"
                       >{{ project.projectTitle }}</a
                     >
                   </h4>
-                  <p class="experience-month">{{ project.displayDate | date: "MMMM dd, yyyy" }}</p>
+                  <p class="experience-month">{{ project.displayDate | date: "MMMM, yyyy" }}</p>
                 </div>
-                <div class="card-grid-contianer">
+                <div class="card-grid-contianer" [style.white-space]="'pre-line'">
                   <p class="data-list">
                     {{ project.projectSummary }}
                   </p>
