@@ -5,7 +5,7 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
 
 const routes: Routes = [  
   {
-    path: 'home',
+    path: '',
     component: AboutComponent,
     data: {
       title: 'Dashboard',
