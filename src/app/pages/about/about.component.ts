@@ -213,7 +213,7 @@ export class AboutComponent implements OnInit {
         userId: 'user123',
         title: 'Programming',
         keys: [
-          { interestKeyId: 'key1', key: 'Problem Solving (leetcode, codeforces)' },
+          { interestKeyId: 'key1', key: 'Problem Solving: solved 250+ problems on LeetCode, 200+ on Codeforces, about 100 on CodeChef; also solve problems on HackerRank regularly.' },
           { interestKeyId: 'key2', key: 'Competitive Coding' },
         ]
       },
@@ -307,13 +307,14 @@ export class AboutComponent implements OnInit {
             topicId: 't1',
             topicName: 'Backend',
             projectTags: [
-              { tagId: 'tag2', projectTagName: '.NET' },
-              { tagId: 'tag3', projectTagName: 'ASP.NET Core' },
+              { tagId: 'tag1', projectTagName: '.NET' },
+              { tagId: 'tag2', projectTagName: 'ASP.NET Core' },
               { tagId: 'tag3', projectTagName: 'PostgreSQL' },
-              { tagId: 'tag3', projectTagName: 'Redis' },
-              { tagId: 'tag3', projectTagName: 'RabbitMQ' },
-              { tagId: 'tag4', projectTagName: 'SQLite' },
-              { tagId: 'tag4', projectTagName: 'Microservices' }
+              { tagId: 'tag4', projectTagName: 'Redis' },
+              { tagId: 'tag5', projectTagName: 'RabbitMQ' },
+              { tagId: 'tag6', projectTagName: 'SQLite' },
+              { tagId: 'tag7', projectTagName: 'Docker' },
+              { tagId: 'tag8', projectTagName: 'Microservices' }
             ]
           }
         ]
@@ -346,7 +347,7 @@ export class AboutComponent implements OnInit {
         projectId: 'p1',
         postId: 'post101',
         projectTitle: 'Authentication Service With UI',
-        projectSummary: 'A complete authentication service. Where users will be able to login/register to the system from UI.',
+        projectSummary: 'A complete authentication service that enables users to register and log in through a user-friendly Angular frontend. The backend is built with .NET Web API, following Clean Architecture principles to ensure scalability and maintainability. JWT (JSON Web Token) is used for secure token-based authentication, and SQL Server is used for reliable data persistence.',
         projectSrcLink: 'https://github.com/saidul-islam-rajib/Auth',
         projectImage: '../../../assets/images/authentication.png',
         displayDate: new Date('2024-06-01'),
@@ -369,8 +370,8 @@ export class AboutComponent implements OnInit {
       {
         projectId: 'p2',
         postId: 'post102',
-        projectTitle: 'Dinner Hosting Service',
-        projectSummary: 'Asp.net Web API based application where authenticated users will login/register to the system and will be able to post/get dinner menu.',
+        projectTitle: 'Dinner Hosting Platform',
+        projectSummary: 'An ASP.NET Web API-based application designed to allow authenticated users to register, log in, and place orders from a dynamic dinner menu. The backend architecture follows the CQRS (Command Query Responsibility Segregation) and Repository Design Pattern, ensuring clear separation of concerns and maintainable code structure. The application uses SQL Server for data storage.',
         projectSrcLink: 'https://github.com/saidul-islam-rajib/Dinner_Host',
         projectImage: '../../../assets/images/dinner_host.png',
         displayDate: new Date('2024-05-01'),
@@ -396,9 +397,9 @@ export class AboutComponent implements OnInit {
         projectId: 'p2',
         postId: 'post102',
         projectTitle: 'Text Editor',
-        projectSummary: 'A desktop applicated named `Notepad` developed with pure python language with complete OOP fundamentals.',
+        projectSummary: 'A desktop application named Notepad, developed entirely in Python using comprehensive Object-Oriented Programming (OOP) principles, ensuring modularity, reusability, and maintainability.',
         projectSrcLink: 'https://github.com/saidul-islam-rajib/Desktop_application',
-        projectImage: '../../../assets/images/desktop_application.jpeg',
+        projectImage: '../../../assets/images/notepad_application.jpeg',
         displayDate: new Date('2021-08-01'),
         startDate: new Date('2022-08-01'),
         endDate: new Date('2022-12-01'),
