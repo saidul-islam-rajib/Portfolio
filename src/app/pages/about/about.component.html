@@ -73,7 +73,7 @@
                 style="--width: 64; --height: 64"
               >
                 <img
-                  src="../../../assets/images/asa_international_asai__logo.jpeg"
+                  [src]="data.companyLogo"
                   width="64"
                   height="64"
                   loading="lazy"
@@ -88,7 +88,7 @@
                     class="headline headline-4 card-title"
                     style="width: 100%; margin-bottom: 0px"
                   >
-                    <a href="https://www.asa-international.com/" class="link hover-2"
+                    <a [href]="data.companyUrl" class="link hover-2"
                       >{{ data.companyName }} ({{ data.shortName }})</a
                     >
                   </h4>

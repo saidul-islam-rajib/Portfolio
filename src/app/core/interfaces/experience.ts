@@ -1,5 +1,6 @@
 export interface Experience{
   companyName: string;
+  companyUrl: string;
   shortName: string;
   companyLogo: string;
   designation: string;

@@ -28,7 +28,7 @@ export class AboutComponent implements OnInit {
     userBio: ""
   };
 
-  experiences:  Experience[] = [];
+  experiences: Experience[] = [];
   educationList: Education[] = [];
   publicationList: Publication[] = [];
   additionalSkillList: AdditionalSkill[] = [];
@@ -37,16 +37,10 @@ export class AboutComponent implements OnInit {
 
   constructor(
     private readonly userInformationService: UserInformationService,
-    private experienceService : ExperienceService,
     private durationService: CalculateDurationService,
-    private educationService: EducationService,
-    private publicationService: PublicationService,
-    private additionalSkillService: AdditionalSkillService,
-    private interestService: InterestService,
-    private projectService: ProjectService
-  ){}
+  ) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.loadUserInformation();
     this.loadExperiences();
     this.loadEducations();
@@ -58,7 +52,7 @@ export class AboutComponent implements OnInit {
 
   loadUserInformation(): void {
     this.userInformationService.getUserInformation().subscribe({
-      next:(data) => {
+      next: (data) => {
         this.user = data;
       },
       error: (err) => {
@@ -70,14 +64,37 @@ export class AboutComponent implements OnInit {
   loadExperiences(): void {
     this.experiences = [
       {
+        companyName: 'Brain Station 23',
+        companyUrl: 'https://brainstation-23.com/',
+        shortName: 'BS23',
+        companyLogo: '../../../assets/images/bs_23_logo.jpg',
+        designation: 'Software Engineer II',
+        isCurrentEmployee: true,
+        isFullTimeEmployee: true,
+        startDate: new Date('2025-11-03'),
+        endDate: new Date(),
+        userId: 'user123',
+        experienceSection: [
+          {
+            experienceSectionId: 'section1',
+            sectionDescription: 'Design, Develop, and Deploy software applications.',
+          },
+          {
+            experienceSectionId: 'section2',
+            sectionDescription: 'Collaborate with client and teams.',
+          }
+        ]
+      },
+      {
         companyName: 'ASA International Management Services Limited',
+        companyUrl: 'https://www.asa-international.com/',
         shortName: 'AMSL',
         companyLogo: '../../../assets/images/asa_international_asai__logo.jpeg',
         designation: 'Junior Software Engineer',
-        isCurrentEmployee: true,
+        isCurrentEmployee: false,
         isFullTimeEmployee: true,
         startDate: new Date('2023-01-11'),
-        endDate: new Date(),
+        endDate: new Date('2025-11-02'),
         userId: 'user123',
         experienceSection: [
           {
@@ -96,6 +113,7 @@ export class AboutComponent implements OnInit {
       },
       {
         companyName: 'ASA International Management Services Limited',
+        companyUrl: 'https://www.asa-international.com/',
         shortName: 'AMSL',
         companyLogo: '../../../assets/images/asa_international_asai__logo.jpeg',
         designation: 'Intern Software Engineer',
@@ -121,11 +139,11 @@ export class AboutComponent implements OnInit {
       }
     ];
   }
-  
+
 
   loadEducations(): void {
     const now = new Date();
-  
+
     this.educationList = [
       {
         instituteName: 'Daffodil International University',
@@ -147,12 +165,12 @@ export class AboutComponent implements OnInit {
             sectionDescription: 'For undergraduate thesis, conducted research on "The Methods for Finding Eligible Employees Based on Specification". where I explored data-driven approaches to pickup the best one and rank them accordingly.'
           }
         ]
-      }      
+      }
     ];
   }
-  
 
-  loadPublication(): void {  
+
+  loadPublication(): void {
     this.publicationList = [
       {
         publicationId: 'pub1',
@@ -178,7 +196,7 @@ export class AboutComponent implements OnInit {
       }
     ];
   }
-  
+
 
   loadAdditionalSkill(): void {
     this.additionalSkillList = [
@@ -203,8 +221,8 @@ export class AboutComponent implements OnInit {
       }
     ];
   }
-  
-  
+
+
 
   loadInterest(): void {
     this.interstList = [
@@ -246,11 +264,11 @@ export class AboutComponent implements OnInit {
           { interestKeyId: 'key8', key: 'Chess' }
         ]
       }
-    ];  
+    ];
   }
-  
-  
-  loadProject(): void {  
+
+
+  loadProject(): void {
     this.projectList = [
       {
         projectId: 'p1',
@@ -416,12 +434,20 @@ export class AboutComponent implements OnInit {
           }
         ]
       }
-    ];  
+    ];
   }
-  
-  
+
+
 
   calculateDuration(startDate: Date, endDate: Date, isCurrentEmployee: boolean): string {
+    if (startDate > endDate) {
+      const formattedDate = startDate.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
+      return `Did not join yet! (Expecting to join by ${formattedDate})`;
+    }
     const effectiveEndDate = isCurrentEmployee ? new Date() : endDate;
     return this.durationService.calculateWorkingDuration(startDate, effectiveEndDate);
   }
