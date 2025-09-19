@@ -173,7 +173,7 @@ export class AboutComponent implements OnInit {
       {
         instituteName: 'Daffodil International University',
         instituteLogo: '../../../assets/images/university_logo.png',
-        department: 'Computer Science and Engineering',
+        department: 'B.Sc. in Computer Science and Engineering (CSE)',
         startDate: new Date('2018-01-01'),
         endDate: new Date('2022-02-22'),
         educationSection: [
