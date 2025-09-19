@@ -317,6 +317,75 @@
   </div>
 </section>
 
+<section class="section-2" id="publications" aria-label="publications">
+  <div class="container">
+    <div class="post-aside grid-list">
+      <div class="card aside-card">
+        <h3 class="headline headline-2 aside-title" style="margin-bottom: 5px;">
+          <span class="span">Trainings</span>
+        </h3>
+        <ul class="experience-list" *ngFor="let training of trainingList" >
+          <li>
+            <div class="experience-card">
+              <figure
+                class="card-banner img-holder"
+                style="--width: 64; --height: 64"
+              >
+                <img
+                  [src]="training.companyLogo"
+                  width="64"
+                  height="64"
+                  loading="lazy"
+                  alt="Publication image is missing"
+                  class="img-cover"
+                />
+              </figure>
+
+              <div class="card-content">
+                <div class="company-content">
+                  <h4
+                    class="headline headline-4 card-title"
+                    style="width: 100%; margin-bottom: 0px"
+                  >
+                    <a [href]="training.link" class="link hover-2"
+                      >{{training.title }}</a
+                    >
+                  </h4>
+                  <p>
+                    {{ training.date | date: "MMMM, yyyy" }}
+                  </p>
+                </div>
+                <div class="warpper" style="margin-bottom: 5px">
+                  <h5
+                    class="headline card-title"
+                    style="width: 100%; margin-bottom: 0px"
+                  >
+                    <p href="#" class="link hover-2">{{ training.trainingCenterName }}</p>
+                  </h5>
+                </div>
+                <div class="card-grid-contianer">
+                  <p class="data-list">
+                    {{ training.summary }}
+                  </p>
+                </div>
+
+                <div class="card-grid-contianer"  >
+                  <h4 class="data-list card-title">Topic & Keys</h4>
+                  <ul *ngFor="let item of training.keys">
+                    <li style="font-size: 12px">
+                      <b>-</b> {{ item.key }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section
   class="section-2"
   id="additional-skills-hobbies"

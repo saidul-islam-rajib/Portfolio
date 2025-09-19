@@ -5,6 +5,7 @@ import { Experience } from 'src/app/core/interfaces/experience';
 import { Interest } from 'src/app/core/interfaces/interest';
 import { Project } from 'src/app/core/interfaces/project';
 import { Publication } from 'src/app/core/interfaces/publication';
+import { Training } from 'src/app/core/interfaces/training';
 import { UserInformation } from 'src/app/core/interfaces/user-information';
 import { AdditionalSkillService } from 'src/app/core/services/additional-skill.service';
 import { CalculateDurationService } from 'src/app/core/services/common/calculate-duration.service';
@@ -34,6 +35,7 @@ export class AboutComponent implements OnInit {
   additionalSkillList: AdditionalSkill[] = [];
   interstList: Interest[] = [];
   projectList: Project[] = [];
+  trainingList: Training[] = [];
 
   constructor(
     private readonly userInformationService: UserInformationService,
@@ -48,6 +50,7 @@ export class AboutComponent implements OnInit {
     this.loadAdditionalSkill();
     this.loadInterest();
     this.loadProject();
+    this.loadTraining();
   }
 
   loadUserInformation(): void {
@@ -191,6 +194,36 @@ export class AboutComponent implements OnInit {
           {
             publicationKeyId: 'key3',
             key: 'ELECTRE'
+          }
+        ]
+      }
+    ];
+  }
+
+  loadTraining(): void {
+    this.trainingList = [
+      {
+        trainingId: 'trainingId1',
+        userId: 'user123',
+        title: 'Structural Steel Fitting',
+        summary: 'In 2014, I embarked on a hands-on training program at SETSCO-SRCI, pausing my studies to learn building construction and steel fitting. Though it is different from my current role `Software Engineer`, the experience taught me discipline, attention to detail, and the value of learning from every challenge.',
+        trainingCenterName: 'Setsco SRCI Traning & Testing Centre',
+        date: new Date('2014-08-22'),
+        serialNumber: "14-353",
+        companyLogo: '../../../assets/images/setsco.jpeg',
+        link: 'https://penguin-srci.com/training.html',
+        keys: [
+          {
+            trainingKeyId: 'key1',
+            key: 'Steel Fitting'
+          },
+          {
+            trainingKeyId: 'key1',
+            key: 'Beam/Column Design and Fitting'
+          },
+          {
+            trainingKeyId: 'key1',
+            key: 'Basic Math'
           }
         ]
       }
