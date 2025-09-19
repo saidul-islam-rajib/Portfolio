@@ -139,6 +139,28 @@ export class AboutComponent implements OnInit {
             sectionDescription: 'Testing software application including performance, functional, integration, system and user acceptance',
           }
         ]
+      },
+      {
+        companyName: 'LIAO HE PTE LTD, Singapore',
+        companyUrl: 'https://www.sgpbusiness.com/company/Liao-He-Pte-Ltd',
+        shortName: 'LIAO HE',
+        companyLogo: '../../../assets/images/liao_he.jpeg',
+        designation: 'General Construction Worker',
+        isCurrentEmployee: false,
+        isFullTimeEmployee: true,
+        startDate: new Date('2015-03-04'),
+        endDate: new Date('2016-03-11'),
+        userId: 'user124',
+        experienceSection: [
+          {
+            experienceSectionId: 'section1',
+            sectionDescription: 'General Construction Tasks: Mix, pour, and apply concrete or other building materials.',
+          },
+          {
+            experienceSectionId: 'section2',
+            sectionDescription: 'Pre-Cast Component Work: Assemble, position, and secure pre-cast concrete elements.',
+          }
+        ]
       }
     ];
   }
