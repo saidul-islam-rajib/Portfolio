@@ -74,7 +74,7 @@ export class AboutComponent implements OnInit {
         designation: 'Software Engineer II',
         isCurrentEmployee: true,
         isFullTimeEmployee: true,
-        startDate: new Date('2025-11-03'),
+        startDate: new Date('2025-11-13'),
         endDate: new Date(),
         userId: 'user123',
         experienceSection: [
