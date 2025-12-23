@@ -80,7 +80,7 @@ export class AboutComponent implements OnInit {
         experienceSection: [
           {
             experienceSectionId: 'section1',
-            sectionDescription: 'Develop, customize, and maintain nopCommerce applications using ASP.NET Core, C#, and MVC.',
+            sectionDescription: 'Develop, customize, and fix bugs of nopCommerce applications(An application is devveloped with ASP.NET core).',
           },
           {
             experienceSectionId: 'section2',
@@ -88,7 +88,7 @@ export class AboutComponent implements OnInit {
           },
           {
             experienceSectionId: 'section3',
-            sectionDescription: 'Integrate third-party services such as payment gateways, shipping providers, and APIs',
+            sectionDescription: 'Working with NextJs, taking responsibility of both frontend and backend development tasks.',
           }
         ]
       },
