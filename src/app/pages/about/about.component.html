@@ -13,9 +13,6 @@
         I can transform manual things or ideas into production-ready applications. I've 3+ years of experience as a
         full-stack software engineer, specialized in Angular, React, Next.js, .NET technologies (including Web API &
         MVC), and SQL/NoSQL databases with devops practices.
-        <br><br>
-        Currently, I am focusing on AI-driven development related things, with a particular interest in Large Language
-        Models (LLMs).
       </p>
     </div>
 
@@ -352,6 +349,69 @@
                   </ul>
                 </div>
 
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-2" id="currently-learning" aria-label="currently-learning">
+  <div class="container">
+    <div class="post-aside grid-list">
+      <div class="card aside-card">
+        <h3 class="headline headline-2 aside-title" style="margin-bottom: 5px;">
+          <span class="span">Currently Learning & Focusing</span>
+        </h3>
+        <p style="margin-bottom: 20px;">
+          Exploring cutting-edge technologies and methodologies to stay ahead in the rapidly evolving tech landscape.
+          My current focus areas reflect my commitment to continuous learning and professional growth.
+        </p>
+        <ul class="experience-list" *ngFor="let learning of currentlyLearningList">
+          <li>
+            <div class="experience-card">
+              <figure class="card-banner img-holder" style="--width: 64; --height: 64">
+                <img src="./assets/images/topic-1.png" width="64" height="64" loading="lazy"
+                  alt="Currently Learning" class="img-cover" />
+              </figure>
+
+              <div class="card-content">
+                <div class="company-content">
+                  <h4 class="headline headline-4 card-title" style="width: 100%; margin-bottom: 0px">
+                    <a class="link hover-2">{{ learning.title }}</a>
+                  </h4>
+                  <p class="experience-month">
+                    Started: {{ learning.startDate | date: "MMMM yyyy" }}
+                  </p>
+                </div>
+
+                <div class="card-grid-contianer" style="margin-bottom: 15px;">
+                  <p class="data-list">
+                    {{ learning.description }}
+                  </p>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="card-grid-contianer" style="margin-bottom: 15px;">
+                  <h4 class="data-list card-title">Progress: {{ learning.progress }}%</h4>
+                  <div style="width: 100%; background-color: #e0e0e0; border-radius: 10px; height: 8px; margin-top: 5px;">
+                    <div [style.width]="getProgressBarWidth(learning.progress)" 
+                         [style.background-color]="getProgressColor(learning.progress)"
+                         style="height: 100%; border-radius: 10px; transition: width 0.3s ease;">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-grid-contianer">
+                  <h4 class="data-list card-title">Key Focus Areas</h4>
+                  <ul *ngFor="let item of learning.keys">
+                    <li style="font-size: 12px">
+                      <b>-</b> {{ item.key }}
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </li>

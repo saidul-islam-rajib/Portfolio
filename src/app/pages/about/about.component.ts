@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { AdditionalSkill } from 'src/app/core/interfaces/additional-skill';
-import { Education } from 'src/app/core/interfaces/education';
-import { Experience } from 'src/app/core/interfaces/experience';
-import { Interest } from 'src/app/core/interfaces/interest';
-import { Project } from 'src/app/core/interfaces/project';
-import { Publication } from 'src/app/core/interfaces/publication';
-import { Training } from 'src/app/core/interfaces/training';
-import { UserInformation } from 'src/app/core/interfaces/user-information';
-import { AdditionalSkillService } from 'src/app/core/services/additional-skill.service';
-import { CalculateDurationService } from 'src/app/core/services/common/calculate-duration.service';
-import { EducationService } from 'src/app/core/services/education.service';
-import { ExperienceService } from 'src/app/core/services/experience.service';
-import { InterestService } from 'src/app/core/services/interest.service';
-import { ProjectService } from 'src/app/core/services/project.service';
-import { PublicationService } from 'src/app/core/services/publication.service';
-import { UserInformationService } from 'src/app/core/services/user-information.service';
+import { AdditionalSkill } from '../../core/interfaces/additional-skill';
+import { CurrentlyLearning } from '../../core/interfaces/currently-learning';
+import { Education } from '../../core/interfaces/education';
+import { Experience } from '../../core/interfaces/experience';
+import { Interest } from '../../core/interfaces/interest';
+import { Project } from '../../core/interfaces/project';
+import { Publication } from '../../core/interfaces/publication';
+import { Training } from '../../core/interfaces/training';
+import { UserInformation } from '../../core/interfaces/user-information';
+import { AdditionalSkillService } from '../../core/services/additional-skill.service';
+import { CalculateDurationService } from '../../core/services/common/calculate-duration.service';
+import { CurrentlyLearningService } from '../../core/services/currently-learning.service';
+import { EducationService } from '../../core/services/education.service';
+import { ExperienceService } from '../../core/services/experience.service';
+import { InterestService } from '../../core/services/interest.service';
+import { ProjectService } from '../../core/services/project.service';
+import { PublicationService } from '../../core/services/publication.service';
+import { TrainingService } from '../../core/services/training.service';
+import { UserInformationService } from '../../core/services/user-information.service';
 
 @Component({
   selector: 'app-about',
@@ -36,10 +39,13 @@ export class AboutComponent implements OnInit {
   interstList: Interest[] = [];
   projectList: Project[] = [];
   trainingList: Training[] = [];
+  currentlyLearningList: CurrentlyLearning[] = [];
 
   constructor(
     private readonly userInformationService: UserInformationService,
     private durationService: CalculateDurationService,
+    private currentlyLearningService: CurrentlyLearningService,
+    private trainingService: TrainingService,
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +57,7 @@ export class AboutComponent implements OnInit {
     this.loadInterest();
     this.loadProject();
     this.loadTraining();
+    this.loadCurrentlyLearning();
   }
 
   loadUserInformation(): void {
@@ -244,11 +251,11 @@ export class AboutComponent implements OnInit {
             key: 'Steel Fitting'
           },
           {
-            trainingKeyId: 'key1',
+            trainingKeyId: 'key2',
             key: 'Beam/Column Design and Fitting'
           },
           {
-            trainingKeyId: 'key1',
+            trainingKeyId: 'key3',
             key: 'Basic Math'
           }
         ]
@@ -509,5 +516,27 @@ export class AboutComponent implements OnInit {
     }
     const effectiveEndDate = isCurrentEmployee ? new Date() : endDate;
     return this.durationService.calculateWorkingDuration(startDate, effectiveEndDate);
+  }
+
+  loadCurrentlyLearning(): void {
+    this.currentlyLearningService.getCurrentlyLearning().subscribe({
+      next: (data) => {
+        this.currentlyLearningList = data;
+      },
+      error: (err) => {
+        console.error('Currently Learning Error:', err);
+      }
+    });
+  }
+
+  getProgressBarWidth(progress: number): string {
+    return `${Math.min(Math.max(progress, 0), 100)}%`;
+  }
+
+  getProgressColor(progress: number): string {
+    if (progress >= 80) return '#4caf50'; // Green
+    if (progress >= 60) return '#ff9800'; // Orange
+    if (progress >= 40) return '#2196f3'; // Blue
+    return '#f44336'; // Red
   }
 }
