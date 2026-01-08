@@ -9,48 +9,24 @@
       </h1>
 
       <p class="hero-text">
-        I’m a problem solver. If you have a real problem and need a real solution, I turn complex, manual challenges into smart digital solutions through clear thinking, problem-solving, and code. If your problem needs a solution with code, I’m the right choice.
+        In simple words- <span class="highlight-caps yellow">I'M NOTHING BUT A PROBLEM SOLVER!</span>
+        I can transform manual things or ideas into production-ready applications. I've 3+ years of experience as a
+        full-stack software engineer, specialized in Angular, React, Next.js, .NET technologies (including Web API &
+        MVC), and SQL/NoSQL databases with devops practices.
+        <br><br>
+        Currently, I am focusing on AI-driven development related things, with a particular interest in Large Language
+        Models (LLMs).
       </p>
     </div>
 
     <div class="hero-banner">
-      <img
-        src="./assets/images/Profile.png"
-        width="327"
-        height="490"
-        alt="Rajib Ahmed"
-        class="w-100"
-      />
-      <img
-        src="./assets/images/pattern-2.svg"
-        width="27"
-        height="26"
-        alt="shape"
-        class="shape shape-1"
-      />
-      <img
-        src="./assets/images/pattern-3.svg"
-        width="27"
-        height="26"
-        alt="shape"
-        class="shape shape-2"
-      />
+      <img src="./assets/images/Profile.png" width="327" height="490" alt="Rajib Ahmed" class="w-100" />
+      <img src="./assets/images/pattern-2.svg" width="27" height="26" alt="shape" class="shape shape-1" />
+      <img src="./assets/images/pattern-3.svg" width="27" height="26" alt="shape" class="shape shape-2" />
     </div>
 
-    <img
-      src="./assets/images/shadow-1.svg"
-      width="500"
-      height="800"
-      alt=""
-      class="hero-bg hero-bg-1"
-    />
-    <img
-      src="./assets/images/shadow-2.svg"
-      width="500"
-      height="500"
-      alt=""
-      class="hero-bg hero-bg-2"
-    />
+    <img src="./assets/images/shadow-1.svg" width="500" height="800" alt="" class="hero-bg hero-bg-1" />
+    <img src="./assets/images/shadow-2.svg" width="500" height="500" alt="" class="hero-bg hero-bg-2" />
   </div>
 </section>
 
@@ -64,59 +40,42 @@
         <ul class="experience-list" *ngFor="let data of experiences">
           <li>
             <div class="experience-card">
-              <figure
-                class="card-banner img-holder"
-                style="--width: 64; --height: 64"
-              >
-                <img
-                  [src]="data.companyLogo"
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                  alt="Missing Image"
-                  class="img-cover"
-                />
+              <figure class="card-banner img-holder" style="--width: 64; --height: 64">
+                <img [src]="data.companyLogo" width="64" height="64" loading="lazy" alt="Missing Image"
+                  class="img-cover" />
               </figure>
 
               <div class="card-content">
                 <div class="company-content">
-                  <h4
-                    class="headline headline-4 card-title"
-                    style="width: 100%; margin-bottom: 0px"
-                  >
-                    <a [href]="data.companyUrl" class="link hover-2"
-                      >{{ data.companyName }} ({{ data.shortName }})</a
-                    >
+                  <h4 class="headline headline-4 card-title" style="width: 100%; margin-bottom: 0px">
+                    <a [href]="data.companyUrl" class="link hover-2">{{ data.companyName }} ({{ data.shortName }})</a>
                   </h4>
                   <p class="experience-month">
                     {{ data.isFullTimeEmployee ? "Full Time" : "" }},
                     {{
-                      calculateDuration(
-                        data.startDate,
-                        data.endDate,
-                        data.isCurrentEmployee
-                      )
+                    calculateDuration(
+                    data.startDate,
+                    data.endDate,
+                    data.isCurrentEmployee
+                    )
                     }}
                   </p>
                 </div>
 
                 <div class="warpper" style="margin-bottom: 5px">
-                  <h4
-                    class="headline card-title"
-                    style="width: 100%; margin-bottom: 0px"
-                  >
+                  <h4 class="headline card-title" style="width: 100%; margin-bottom: 0px">
                     <a class="link hover-2">{{ data.designation }}</a>
                   </h4>
                   <p class="experience-month">
                     {{ data.startDate | date : "MMMM dd, yyyy" }}
                     {{
-                      data.isCurrentEmployee
-                        ? "to Present"
-                        : " to " + (data.endDate | date : "MMMM dd, yyyy")
+                    data.isCurrentEmployee
+                    ? "to Present"
+                    : " to " + (data.endDate | date : "MMMM dd, yyyy")
                     }}
                   </p>
                 </div>
-                <div class="card-grid-contianer"  >
+                <div class="card-grid-contianer">
                   <h4 class="data-list card-title">Role & Responsibilities</h4>
                   <ul *ngFor="let section of data.experienceSection">
                     <li style="font-size: 12px">
@@ -140,41 +99,27 @@
         <h3 class="headline headline-2 aside-title" style="margin-bottom: 5px;">
           <span class="span">Education</span>
         </h3>
-        <ul class="experience-list" *ngFor="let education of educationList" >
+        <ul class="experience-list" *ngFor="let education of educationList">
           <li>
             <div class="experience-card">
-              <figure
-                class="card-banner img-holder"
-                style="--width: 64; --height: 64"
-              >
-                <img
-                  src="../../../assets/images/university_logo.png"
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                  alt="Creating is a privilege but it’s also a gift"
-                  class="img-cover"
-                />
+              <figure class="card-banner img-holder" style="--width: 64; --height: 64">
+                <img src="../../../assets/images/university_logo.png" width="64" height="64" loading="lazy"
+                  alt="Creating is a privilege but it’s also a gift" class="img-cover" />
               </figure>
 
               <div class="card-content">
                 <div class="company-content">
-                  <h4
-                    class="headline headline-4 card-title"
-                    style="width: 100%; margin-bottom: 0px"
-                  >
-                    <a href="https://daffodilvarsity.edu.bd/" class="link hover-2"
-                      >{{ education.instituteName }} (DIU)</a
-                    >
+                  <h4 class="headline headline-4 card-title" style="width: 100%; margin-bottom: 0px">
+                    <a href="https://daffodilvarsity.edu.bd/" class="link hover-2">{{ education.instituteName }}
+                      (DIU)</a>
                   </h4>
-                  <label for=""
-                    >{{ education.department }}</label
-                  >
-                  <p class="experience-month">{{ education.startDate | date: "MMMM dd, yyyy" }} to {{ education.endDate | date: "MMMM dd, yyyy"}}</p>
+                  <label for="">{{ education.department }}</label>
+                  <p class="experience-month">{{ education.startDate | date: "MMMM dd, yyyy" }} to {{ education.endDate
+                    | date: "MMMM dd, yyyy"}}</p>
                 </div>
-                <div class="card-grid-contianer"  >
+                <div class="card-grid-contianer">
                   <h4 class="data-list card-title">Learning && Skills && Achievements</h4>
-                  <ul *ngFor="let section of education.educationSection" >
+                  <ul *ngFor="let section of education.educationSection">
                     <li style="font-size: 12px; margin-bottom: 5px;">
                       <b>-</b> {{ section.sectionDescription }}
                     </li>
@@ -196,42 +141,26 @@
         <h3 class="headline headline-2 aside-title" style="margin-bottom: 5px;">
           <span class="span">Publications / Thesis</span>
         </h3>
-        <ul class="experience-list" *ngFor="let publication of publicationList" >
+        <ul class="experience-list" *ngFor="let publication of publicationList">
           <li>
             <div class="experience-card">
-              <figure
-                class="card-banner img-holder"
-                style="--width: 64; --height: 64"
-              >
-                <img
-                  src="./assets/images/popular-post-1.jpg"
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                  alt="Publication image is missing"
-                  class="img-cover"
-                />
+              <figure class="card-banner img-holder" style="--width: 64; --height: 64">
+                <img src="./assets/images/popular-post-1.jpg" width="64" height="64" loading="lazy"
+                  alt="Publication image is missing" class="img-cover" />
               </figure>
 
               <div class="card-content">
                 <div class="company-content">
-                  <h4
-                    class="headline headline-4 card-title"
-                    style="width: 100%; margin-bottom: 0px"
-                  >
-                    <a href="https://internship.daffodilvarsity.edu.bd/?app=home&cmd=reportsViewPDFskin&project_number=19455" class="link hover-2"
-                      >{{publication.title }}</a
-                    >
+                  <h4 class="headline headline-4 card-title" style="width: 100%; margin-bottom: 0px">
+                    <a href="https://internship.daffodilvarsity.edu.bd/?app=home&cmd=reportsViewPDFskin&project_number=19455"
+                      class="link hover-2">{{publication.title }}</a>
                   </h4>
                   <p>
                     {{ publication.date | date: "MMMM, yyyy" }}
                   </p>
                 </div>
                 <div class="warpper" style="margin-bottom: 5px">
-                  <h5
-                    class="headline card-title"
-                    style="width: 100%; margin-bottom: 0px"
-                  >
+                  <h5 class="headline card-title" style="width: 100%; margin-bottom: 0px">
                     <p href="#" class="link hover-2">{{ publication.journalName }}</p>
                   </h5>
                 </div>
@@ -241,7 +170,7 @@
                   </p>
                 </div>
 
-                <div class="card-grid-contianer"  >
+                <div class="card-grid-contianer">
                   <h4 class="data-list card-title">Topic & Keys</h4>
                   <ul *ngFor="let item of publication.keys">
                     <li style="font-size: 12px">
@@ -266,34 +195,21 @@
           <span class="span">Projects</span>
         </h3>
         <p style="margin-top: -20px; margin-bottom: 20px;">
-          I’ve built several personal projects using React, Angular, .NET Web API, and more. These projects highlight my skills in full-stack and cross-platform development.
+          I’ve built several personal projects using React, Angular, .NET Web API, and more. These projects highlight my
+          skills in full-stack and cross-platform development.
           The source code is open to the public and listed below.
         </p>
-        <ul class="grid-list" *ngFor="let project of projectList" >
+        <ul class="grid-list" *ngFor="let project of projectList">
           <li>
             <div class="recent-post-card">
-              <figure
-                class="card-banner img-holder"
-                style="--width: 350; --height: 200; background-color: c"
-              >
-                <img
-                  src={{project.projectImage}}
-                  width="200"
-                  height="100"
-                  loading="lazy"
-                  alt="Helpful Tips for Working from Home as a Freelancer"
-                  class="img-cover"
-                />
+              <figure class="card-banner img-holder" style="--width: 350; --height: 200; background-color: c">
+                <img src={{project.projectImage}} width="200" height="100" loading="lazy"
+                  alt="Helpful Tips for Working from Home as a Freelancer" class="img-cover" />
               </figure>
               <div class="card-content">
                 <div class="company-content">
-                  <h4
-                    class="headline headline-4 card-title"
-                    style="width: 100%; margin-bottom: 0px"
-                  >
-                    <a class="link hover-2"
-                      >{{ project.projectTitle }}</a
-                    >
+                  <h4 class="headline headline-4 card-title" style="width: 100%; margin-bottom: 0px">
+                    <a class="link hover-2">{{ project.projectTitle }}</a>
                   </h4>
                   <p class="experience-month">{{ project.displayDate | date: "MMMM, yyyy" }}</p>
                 </div>
@@ -305,7 +221,8 @@
                 </div>
                 <div class="card-wrapper">
                   <div class="card-tag" *ngFor="let projectTagList of project.projectSection">
-                    <a *ngFor="let item of projectTagList.projectTags" class="span hover-2"># {{ item.projectTagName }}</a>
+                    <a *ngFor="let item of projectTagList.projectTags" class="span hover-2"># {{ item.projectTagName
+                      }}</a>
                   </div>
                 </div>
               </div>
@@ -324,42 +241,25 @@
         <h3 class="headline headline-2 aside-title" style="margin-bottom: 5px;">
           <span class="span">Trainings</span>
         </h3>
-        <ul class="experience-list" *ngFor="let training of trainingList" >
+        <ul class="experience-list" *ngFor="let training of trainingList">
           <li>
             <div class="experience-card">
-              <figure
-                class="card-banner img-holder"
-                style="--width: 64; --height: 64"
-              >
-                <img
-                  [src]="training.companyLogo"
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                  alt="Publication image is missing"
-                  class="img-cover"
-                />
+              <figure class="card-banner img-holder" style="--width: 64; --height: 64">
+                <img [src]="training.companyLogo" width="64" height="64" loading="lazy"
+                  alt="Publication image is missing" class="img-cover" />
               </figure>
 
               <div class="card-content">
                 <div class="company-content">
-                  <h4
-                    class="headline headline-4 card-title"
-                    style="width: 100%; margin-bottom: 0px"
-                  >
-                    <a [href]="training.link" class="link hover-2"
-                      >{{training.title }}</a
-                    >
+                  <h4 class="headline headline-4 card-title" style="width: 100%; margin-bottom: 0px">
+                    <a [href]="training.link" class="link hover-2">{{training.title }}</a>
                   </h4>
                   <p>
                     {{ training.date | date: "MMMM, yyyy" }}
                   </p>
                 </div>
                 <div class="warpper" style="margin-bottom: 5px">
-                  <h5
-                    class="headline card-title"
-                    style="width: 100%; margin-bottom: 0px"
-                  >
+                  <h5 class="headline card-title" style="width: 100%; margin-bottom: 0px">
                     <p href="#" class="link hover-2">{{ training.trainingCenterName }}</p>
                   </h5>
                 </div>
@@ -369,7 +269,7 @@
                   </p>
                 </div>
 
-                <div class="card-grid-contianer"  >
+                <div class="card-grid-contianer">
                   <h4 class="data-list card-title">Topic & Keys</h4>
                   <ul *ngFor="let item of training.keys">
                     <li style="font-size: 12px">
@@ -386,42 +286,24 @@
   </div>
 </section>
 
-<section
-  class="section-2"
-  id="additional-skills-hobbies"
-  aria-label="additional-skills-hobbies"
->
+<section class="section-2" id="additional-skills-hobbies" aria-label="additional-skills-hobbies">
   <div class="container">
     <div class="post-aside grid-list">
       <div class="card aside-card">
         <h3 class="headline headline-2 aside-title" style="margin-bottom: 5px;">
           <span class="span">Additional Skills</span>
         </h3>
-        <ul class="experience-list" *ngFor="let skill of additionalSkillList" >
+        <ul class="experience-list" *ngFor="let skill of additionalSkillList">
           <li>
             <div class="experience-card">
-              <figure
-                class="card-banner img-holder"
-                style="--width: 64; --height: 64"
-              >
-                <img
-                  src="./assets/images/popular-post-3.jpg"
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                  alt="Every day, in every city and town across the country"
-                  class="img-cover"
-                />
+              <figure class="card-banner img-holder" style="--width: 64; --height: 64">
+                <img src="./assets/images/popular-post-3.jpg" width="64" height="64" loading="lazy"
+                  alt="Every day, in every city and town across the country" class="img-cover" />
               </figure>
               <div class="card-content">
                 <div class="company-content">
-                  <h4
-                    class="headline headline-4 card-title"
-                    style="width: 100%; margin-bottom: 0px"
-                  >
-                    <a href="#" class="link hover-2"
-                      >{{ skill.title }}</a
-                    >
+                  <h4 class="headline headline-4 card-title" style="width: 100%; margin-bottom: 0px">
+                    <a href="#" class="link hover-2">{{ skill.title }}</a>
                   </h4>
                 </div>
 
@@ -448,32 +330,18 @@
         <h3 class="headline headline-2 aside-title" style="margin-bottom: 5px;">
           <span class="span">Interests & Hobbies</span>
         </h3>
-        <ul class="experience-list" *ngFor="let interest of interstList" >
+        <ul class="experience-list" *ngFor="let interest of interstList">
           <li>
             <div class="experience-card">
-              <figure
-                class="card-banner img-holder"
-                style="--width: 64; --height: 64"
-              >
-                <img
-                  src="./assets/images/popular-post-1.jpg"
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                  alt="Creating is a privilege but it’s also a gift"
-                  class="img-cover"
-                />
+              <figure class="card-banner img-holder" style="--width: 64; --height: 64">
+                <img src="./assets/images/popular-post-1.jpg" width="64" height="64" loading="lazy"
+                  alt="Creating is a privilege but it’s also a gift" class="img-cover" />
               </figure>
 
               <div class="card-content">
                 <div class="company-content">
-                  <h4
-                    class="headline headline-4 card-title"
-                    style="width: 100%; margin-bottom: 0px"
-                  >
-                    <a href="#" class="link hover-2"
-                      >{{ interest.title }}</a
-                    >
+                  <h4 class="headline headline-4 card-title" style="width: 100%; margin-bottom: 0px">
+                    <a href="#" class="link hover-2">{{ interest.title }}</a>
                   </h4>
                 </div>
                 <div class="card-grid-contianer">
@@ -502,11 +370,11 @@
       <ul class="">
         <li>
           <div>
-            <h4 class="headline" >
+            <h4 class="headline">
               <a href="#" class="link hover-2">English</a>
             </h4>
             <p>Professional proficiency</p>
-          </div>          
+          </div>
         </li>
       </ul>
     </div>
