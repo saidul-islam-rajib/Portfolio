@@ -75,3 +75,23 @@
 .learning-card:hover::before {
   left: 100%;
 }
+
+.learning-image {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.3s ease;
+}
+
+.learning-image:hover {
+  transform: scale(1.05);
+}
+
+.health-image {
+  object-fit: cover;
+  object-position: center 40%;
+  transition: transform 0.3s ease;
+}
+
+.health-image:hover {
+  transform: scale(1.1); 
+}

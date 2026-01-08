@@ -4,7 +4,8 @@ export interface CurrentlyLearning {
   title: string;
   description: string;
   startDate: Date;
-  progress: number; // 0-100 percentage
+  progress: number;
+  image: string;
   keys: CurrentlyLearningKey[];
 }
 

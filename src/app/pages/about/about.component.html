@@ -373,8 +373,12 @@
           <li>
             <div class="experience-card">
               <figure class="card-banner img-holder" style="--width: 64; --height: 64">
-                <img src="./assets/images/topic-1.png" width="64" height="64" loading="lazy"
-                  alt="Currently Learning" class="img-cover" />
+                <img [src]="learning.image" 
+                     width="64" 
+                     height="64" 
+                     loading="lazy"
+                     [alt]="learning.title" 
+                     [class]="learning.title === 'Health' ? 'img-cover health-image' : 'img-cover learning-image'" />
               </figure>
 
               <div class="card-content">
