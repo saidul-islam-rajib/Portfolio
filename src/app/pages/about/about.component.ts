@@ -86,16 +86,8 @@ export class AboutComponent implements OnInit {
         userId: 'user123',
         experienceSection: [
           {
-            "experienceSectionId": "section1",
-            "sectionDescription": "Working on the SMBUI application using Next.js, focusing on bug fixing, feature implementation, code refactoring, and continuous improvements."
-          },
-          {
-            "experienceSectionId": "section2",
-            "sectionDescription": "Managed backend development using ASP.NET Core within the nopCommerce architecture, ensuring seamless frontend–backend integration."
-          },
-          {
-            "experienceSectionId": "section3",
-            "sectionDescription": "Created, customized, and maintained nopCommerce themes and plugins based on requirements."
+            experienceSectionId: 'section1',
+            sectionDescription: 'Own the end-to-end development and maintenance of Next.js and nopCommerce applications, collaborating with international clients to gather requirements, design scalable solutions, develop features, optimize performance, manage deployments, and provide ongoing production support and maintenance.',
           }
         ]
       },
