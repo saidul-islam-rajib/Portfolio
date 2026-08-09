@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './common/not-found/not-found.component';
 import { CeilPipe } from './core/pipes/ceil.pipe';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -29,8 +30,9 @@ import { CeilPipe } from './core/pipes/ceil.pipe';
     AppRoutingModule,
     IonicModule.forRoot(),
     ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
