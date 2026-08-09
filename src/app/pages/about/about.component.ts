@@ -41,6 +41,38 @@ export class AboutComponent implements OnInit {
   trainingList: Training[] = [];
   currentlyLearningList: CurrentlyLearning[] = [];
 
+  get experienceYears(): string {
+    const years = this.calculateYearsSinceExperience();
+    return `${years}+`;
+  }
+
+  private calculateYearsSinceExperience(): number {
+    const softwareExperience = this.experiences.filter((experience) =>
+      /software|engineer|developer/i.test(experience.designation)
+    );
+
+    if (!softwareExperience.length) {
+      return 0;
+    }
+
+    const earliestStart = softwareExperience.reduce((earliest, current) =>
+      current.startDate < earliest ? current.startDate : earliest,
+      softwareExperience[0].startDate
+    );
+
+    const now = new Date();
+    let years = now.getFullYear() - earliestStart.getFullYear();
+    const beforeAnniversary =
+      now.getMonth() < earliestStart.getMonth() ||
+      (now.getMonth() === earliestStart.getMonth() && now.getDate() < earliestStart.getDate());
+
+    if (beforeAnniversary) {
+      years -= 1;
+    }
+
+    return Math.max(0, years);
+  }
+
   constructor(
     private readonly userInformationService: UserInformationService,
     private durationService: CalculateDurationService,
@@ -87,7 +119,7 @@ export class AboutComponent implements OnInit {
         experienceSection: [
           {
             experienceSectionId: 'section1',
-            sectionDescription: 'Own the end-to-end development and maintenance of Next.js and nopCommerce applications, collaborating with international clients to gather requirements, design scalable solutions, develop features, optimize performance, manage deployments, and provide ongoing production support and maintenance.',
+            sectionDescription: 'Lead end-to-end development and production support for Next.js and nopCommerce applications. Collaborate with international clients to gather requirements, deliver scalable solutions, improve performance, and manage deployments with modern DevOps practices.',
           }
         ]
       },
@@ -131,15 +163,15 @@ export class AboutComponent implements OnInit {
         experienceSection: [
           {
             experienceSectionId: 'section1',
-            sectionDescription: 'Creating new applications (full stack development through angular for frontend, ASP.NET web API for creating API’s) and updating existing applications based on requirements',
+            sectionDescription: 'Delivered full-stack features using Angular for frontend and ASP.NET Web API for backend, while updating existing applications to meet evolving requirements.',
           },
           {
             experienceSectionId: 'section2',
-            sectionDescription: 'Working with microservice architecture and debugging programming codes to fix bugs & errors and improve performance of the existing system (like AMBS Nextgen project)',
+            sectionDescription: 'Worked on microservice-based architecture, debugging code and improving performance in systems such as AMBS Nextgen.',
           },
           {
             experienceSectionId: 'section3',
-            sectionDescription: 'Testing software application including performance, functional, integration, system and user acceptance',
+            sectionDescription: 'Executed functional and integration testing to ensure software quality and readiness for user acceptance.',
           }
         ]
       },
@@ -182,15 +214,15 @@ export class AboutComponent implements OnInit {
         educationSection: [
           {
             educationSectionId: 'eduSec1',
-            sectionDescription: 'During my university years- I actively participated in numerous programming contests including CPC and IUPC. In addition to on-site competitions I actively participated in online coding challenges on platforms Codeforces and CodeChef. Which helped to sharpen my problem-solving skills.'
+            sectionDescription: 'During my university studies, I participated in programming contests such as CPC and IUPC and solved problems on Codeforces and CodeChef to strengthen algorithmic thinking and problem-solving skills.',
           },
           {
             educationSectionId: 'eduSec2',
-            sectionDescription: 'Alongside contests, I took the initiative to build several exciting and practical projects. These include a `House Price Prediction` model leveraging machine learning techniques and a lightweight desktop application like text editor called `Notepad`.'
+            sectionDescription: 'Built practical projects including a house price prediction model using machine learning and a lightweight Notepad desktop application to strengthen software design and implementation skills.',
           },
           {
             educationSectionId: 'eduSec3',
-            sectionDescription: 'For undergraduate thesis, conducted research on "The Methods for Finding Eligible Employees Based on Specification". where I explored data-driven approaches to pickup the best one and rank them accordingly.'
+            sectionDescription: 'Completed an undergraduate thesis on "Methods for Finding Eligible Employees Based on Specification," researching data-driven candidate ranking and decision support techniques.',
           }
         ]
       }
@@ -204,7 +236,7 @@ export class AboutComponent implements OnInit {
         publicationId: 'pub1',
         userId: 'user123',
         title: 'Methods for Finding Eligible Employees Based on Specifications',
-        summary: 'This research applies data-driven techniques to assess and rank candidates based on predefined criteria. Aiming to improve the efficiency and accuracy of hiring decisions for picking up the best one and/or to identify the most weakest one.',
+        summary: 'This research applies multi-criteria decision-making and fuzzy analytic hierarchy techniques to assess and rank candidates based on job specifications, improving the efficiency and accuracy of hiring decisions.',
         journalName: 'Daffodil International University',
         date: new Date('2021-12-01'),
         keys: [
@@ -231,7 +263,7 @@ export class AboutComponent implements OnInit {
         trainingId: 'trainingId1',
         userId: 'user123',
         title: 'Structural Steel Fitting',
-        summary: 'In 2014, I embarked on a hands-on training program at SETSCO-SRCI, pausing my studies to learn building construction and steel fitting. Though it is different from my current role `Software Engineer`, the experience taught me discipline, attention to detail, and the value of learning from every challenge.',
+        summary: 'In 2014, I completed hands-on training at SETSCO-SRCI, gaining practical discipline, attention to detail, and a strong commitment to learning from every challenge, which continues to support my work as a software engineer.',
         trainingCenterName: 'Setsco SRCI Traning & Testing Centre',
         date: new Date('2014-08-22'),
         serialNumber: "14-353",
@@ -261,20 +293,30 @@ export class AboutComponent implements OnInit {
       {
         additionalSkillId: 'as1',
         userId: 'user123',
-        title: 'Soft Skills',
+        title: 'Engineering Skills',
         keys: [
-          { additionalSkillKeyId: 'ask1', key: 'Teamwork: Enjoy collaboration and value diverse perspectives.' },
-          { additionalSkillKeyId: 'ask2', key: 'Time Management: Prioritize tasks and meet deadlines efficiently.' },
-          { additionalSkillKeyId: 'ask3', key: 'Adaptability: Quickly adjust to changes and challenges.' }
+          { additionalSkillKeyId: 'ask1', key: 'Full-Stack Development: Angular, React, Next.js, .NET, C#.' },
+          { additionalSkillKeyId: 'ask2', key: 'Backend & APIs: ASP.NET Core, Web API, SQL Server, PostgreSQL.' },
+          { additionalSkillKeyId: 'ask3', key: 'Architecture: Clean Architecture, CQRS, Microservices, Domain-Driven Design.' }
         ]
       },
       {
         additionalSkillId: 'as2',
         userId: 'user123',
-        title: 'Tools & Technologies',
+        title: 'Cloud & DevOps',
         keys: [
-          { additionalSkillKeyId: 'ask4', key: 'Git: Proficient with version control and collaborative development.' },
-          { additionalSkillKeyId: 'ask5', key: 'Postman: Skilled in API testing and request automation.' }
+          { additionalSkillKeyId: 'ask4', key: 'AWS: Building and deploying cloud-native applications.' },
+          { additionalSkillKeyId: 'ask5', key: 'CI/CD: Jenkins, Azure DevOps, automated build and release pipelines.' },
+          { additionalSkillKeyId: 'ask6', key: 'Containerization: Docker and Kubernetes for scalable deployments.' }
+        ]
+      },
+      {
+        additionalSkillId: 'as3',
+        userId: 'user123',
+        title: 'Tools & Collaboration',
+        keys: [
+          { additionalSkillKeyId: 'ask7', key: 'Git: Version control and collaborative development workflows.' },
+          { additionalSkillKeyId: 'ask8', key: 'Postman: API validation and automation for backend testing.' }
         ]
       }
     ];
@@ -333,14 +375,9 @@ export class AboutComponent implements OnInit {
         postId: 'post101',
         projectTitle: 'Personal Blog Website',
         projectSummary: `
-            This is a personal blog and portfolio website where the admin can create and update posts or projects based on various topics. Public users can engage by commenting on posts or projects and subscribing for updates.
+            A modular portfolio and blogging platform built with a separate Angular admin panel and public-facing Angular site. This application has a dedicated About page for showcasing technology skills, experience, publications, and portfolio projects.
 
-            A dedicated "About" page showcases the admin's portfolio, including employment history, academic background, interests, publications, and more.
-
-            To ensure scalability and maintainability, the application follows a modular architecture:
-            admin-blog (Admin Panel): A separate Angular application for managing content.
-            frontend-blog (Public View): A distinct Angular application for public users.
-            Backend: Built with .NET 8 Web API, utilizing SQL Server for data storage, Redis for distributed caching, and Redis as a message broker. The architecture follows Clean Architecture principles with CQRS for efficient data processing.
+            The backend is implemented using .NET 8 Web API with SQL Server, Redis caching, and Redis messaging. The solution follows Clean Architecture principles and CQRS for predictable, maintainable server-side behavior.
             `,
         projectSrcLink: 'https://github.com/saidul-islam-rajib/frontend-blog',
         projectImage: '../../../assets/images/personal_blog.png',
@@ -371,7 +408,7 @@ export class AboutComponent implements OnInit {
         projectId: 'p1',
         postId: 'post101',
         projectTitle: 'e-Commerce Application',
-        projectSummary: 'An application for ecommerce that enabling customers to seamlessly create a shopping basket, proceed to checkout and place orders. The system also incorporates a feature to apply discounts on specific products.',
+        projectSummary: 'An ecommerce application that enables customers to build a shopping cart, checkout securely, and place orders. The platform supports product discounts and streamlines order workflows for a modern retail experience.',
         projectSrcLink: 'https://github.com/saidul-islam-rajib/ECommerce',
         projectImage: '../../../assets/images/ecommerce_application.png',
         displayDate: new Date('2024-11-01'),
@@ -399,7 +436,7 @@ export class AboutComponent implements OnInit {
         projectId: 'p1',
         postId: 'post101',
         projectTitle: 'Authentication Service',
-        projectSummary: 'A complete and secured token based(jwt) authentication service developed using industry latest technologies like microservices. Where an authenticated user will able to login/register.',
+        projectSummary: 'A secure JWT-based authentication service built with microservices principles. Users can register, log in, and maintain session security using modern token-based authorization.',
         projectSrcLink: 'https://github.com/saidul-islam-rajib/Authentication',
         projectImage: '../../../assets/images/authentication.png',
         displayDate: new Date('2024-06-01'),
@@ -423,7 +460,7 @@ export class AboutComponent implements OnInit {
         projectId: 'p1',
         postId: 'post101',
         projectTitle: 'Authentication Service With UI',
-        projectSummary: 'A complete authentication service that enables users to register and log in through a user-friendly Angular frontend. The backend is built with .NET Web API, following Clean Architecture principles to ensure scalability and maintainability. JWT (JSON Web Token) is used for secure token-based authentication, and SQL Server is used for reliable data persistence.',
+        projectSummary: 'A full-stack authentication system that combines an Angular frontend with a .NET Web API backend. It uses Clean Architecture, JWT for secure sessions, and SQL Server for reliable persistence.',
         projectSrcLink: 'https://github.com/saidul-islam-rajib/Auth',
         projectImage: '../../../assets/images/authentication.png',
         displayDate: new Date('2024-06-01'),
